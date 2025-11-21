@@ -1,40 +1,23 @@
-# Real-Time Collaboration Board — Backend (Ready to Run)
+# Real-Time Collaboration Board — Backend 
 
-This is a minimal backend for a **Real-Time Collaboration Board**.
-
-It uses:
-- Node.js + Express
-- Socket.IO for real-time updates
-- In-memory storage for boards and items (no external DB)
-
-## Getting Started
+## Run server
 
 ```bash
-cd real-time-collaboration-board
+cd server
 npm install
 cp .env.example .env
 npm start
 ```
 
-The server will start on `http://localhost:4002`.
+## Run client
 
-## REST Endpoints
+```bash
+cd client
+npm install
+npm run dev
+```
 
-- `GET /health` – health check
-- `GET /api/boards` – list all boards
-- `POST /api/boards` – create a board  
-  ```json
-  { "name": "Sprint Planning" }
-  ```
-
-## Socket.IO Events
-
-- `join_board` – join a specific board room  
-  ```js
-  socket.emit('join_board', 'board-123');
-  ```
-- `add_item` – add an item to a board  
-  ```js
+Client expects server on http://localhost:4002
   socket.emit('add_item', { boardId: 'board-123', content: 'New sticky note' });
   ```
 
